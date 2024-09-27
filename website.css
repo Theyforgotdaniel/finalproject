@@ -1,0 +1,23 @@
+﻿body {
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin: 0px;
+}
+header {
+	text-align: left;
+	background-color: #003366;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	text-transform: capitalize;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 20px;
+}
+footer {
+	text-align: center;
+	background-color: #003366;
+	padding: 15px;
+	z-index: 10;
+	width: 100%;
+	position: static;
+}
