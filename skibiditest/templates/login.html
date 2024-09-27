@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="{{url_for('static', filename='login.css') }}" rel="stylesheet" type="text/css" />
+</head> 
+
+<body>'
+
+	<div class="container"></div>
+	<div class="profile"></div>
+	<div class="profile-header"></div>   
+			<p>   
+		<img src="blank-profile-picture-973460_1280.png" alt="profile" class="profile-img"/></p>
+&nbsp;<div class="profile-text-container"></div>   
+		<h1 class="profile-text">User Profile Setting</h1>
+	 		<p class="profile-email">{{email}}</p>
+	<div class="menu"><a href="login.html" class="menu-link">Personal Details</a>
+					  <a href="securitysettings.html" class="menu-link">Security Settings</a>
+					  <a href="#" class="menu-link">Logout</a>
+	</div>
+	<form action="{{url_for('views.login')}}" method="POST" class="account">
+		<div class="account-header">
+			<h1 class="account-title">Personal Details</h1>
+		<div class="btn-container">
+			<button class="btn-cancel" style="width: 5cm; height: 2cm" type="submit" name="action" value="cancel">Cancel</button>
+			<button class="btn-save" style="width: 5cm; height: 2cm" type="submit" name="action" value="save">Save</button>
+		</div>
+		</div>
+	<div class="account-edit"></div>
+	<div class="input-container">
+		<label>First Name</label>
+		<input type="text" name="first_name" placeholder="First Name" required/>
+		<label>Last Name</label>
+		<input type="text" name="last_name" placeholder="Last Name" required/>
+		<label>Date of Birth</label>
+		<input type="date" name="dob" id="date_of_travel" placeholder="Date of Travel" required/>   
+		<label for="Gender">Gender</label>
+		<select id="gender" name="gender" placeholder="Gender">
+		  <option value="Boy">Boy</option>
+		  <option value="Girl">Girl</option>
+		  <option value="Rather not say">Rather not say</option>
+		</select>        
+
+
+	</div>
+	</form>	  
+</body>
+
+</html>
