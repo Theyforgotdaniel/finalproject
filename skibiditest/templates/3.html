@@ -1,0 +1,54 @@
+<head>
+    <link href="bakasystem.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<header>
+    <a href="3.html"><h1><strong>Saranghae Booking System</strong></h1></a>
+</header>
+
+<div class="title">
+    <a href="{{ url_for('login') }}" class="sublink"><h2>Profile Settings</h2></a>
+</div>
+
+<div class="container">
+    <!-- User Registration Form -->
+    <div class="form-box user-registration">
+        <h2>User Registration</h2>
+        <form id="registration-form">
+            <label for="username">Username:</label>
+            <input type="text" id="reg-username" required aria-label="Username">
+            <label for="email">Email:</label>
+            <input type="email" id="reg-email" required aria-label="Email">
+            <label for="password">Password:</label>
+            <input type="password" id="reg-password" required aria-label="Password">
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <p id="message"></p> <!-- Added a paragraph to display messages -->
+
+</div>
+
+<script>
+    // User Registration
+    document.getElementById('registration-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let username = document.getElementById('reg-username').value;
+        let email = document.getElementById('reg-email').value;
+        let password = document.getElementById('reg-password').value;
+
+        // Save user data in localStorage
+        localStorage.setItem('username', username);
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+
+        document.getElementById('message').innerText = 'Registration successful!';
+
+        // Redirect to the next page (replace 'nextPage.html' with your actual target page)
+        window.location.href = '2.html'; 
+    });
+</script>
+
+</body>
+</html>

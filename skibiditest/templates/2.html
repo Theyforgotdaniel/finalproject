@@ -1,0 +1,49 @@
+<head>
+    <link href="bakasystem.css" rel="stylesheet" type="text/css" />
+<body>
+
+<header>
+    <a href="3.html"><h1><strong>Saranghae Booking System</strong></h1></a>
+</header>
+
+<div class="title">
+    <a href="{{url_for('views.login')}}" class="sublink"><h2>Profile Settings</h2></a>
+</div>
+
+<!-- User Login Form -->
+<div class="form-box user-login">
+    <h2>User Login</h2>
+    <form id="login-form">
+        <label for="username">Username: </label>
+        <input type="text" id="login-username" required aria-label="Username">
+        <label for="password">Password:</label>
+        <input type="password" id="login-password" required aria-label="Password">
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<p id="message"></p>
+
+<script>
+    // User Login
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let loginUsername = document.getElementById('login-username').value;
+        let loginPassword = document.getElementById('login-password').value;
+
+        // Check credentials
+        let storedUsername = localStorage.getItem('username');
+        let storedPassword = localStorage.getItem('password');
+
+        if (loginUsername === storedUsername && loginPassword === storedPassword) {
+            document.getElementById('message').innerText = 'Login successful!';
+            // Redirect to the booking page after successful login
+            window.location.href = '1.html'; // Change this to your desired URL
+        } else {
+            document.getElementById('message').innerText = 'Login failed. Please check your credentials.';
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<head>
+    <link href="bakasystem.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<header>
+    <a href="3.html"><h1><strong>Saranghae Booking System</strong></h1></a>
+</header>
+
+<div class="title">
+    <a href="{{url_for('views.login')}}" class="sublink"><h2>Profile Settings</h2></a>
+</div>
+
+<!-- Booking Form -->
+<div class="form-box" id="booking-form">
+    <h2>Book a Ticket</h2>
+    <form id="ticket-form">
+        <label for="destination">Destination:</label>
+        <select id="destination" required aria-label="Destination">
+            <option value="">Select Destination</option>
+            <option value="TAMARIND SQUARE">TAMARIND SQUARE</option>
+            <option value="MULTIMEDIA UNIVERSITY">MULTIMEDIA UNIVERSITY</option>
+            <option value="CYBERIA SMARTHOMES">CYBERIA SMARTHOMES</option>
+            <option value="DPULZE">DPULZE</option>
+            <option value="SHAFTSBURY">SHAFTSBURY</option>
+            <option value="CYBERJAYA CITY CENTRE">CYBERJAYA CITY CENTRE</option>
+            <option value="CYBERJAYA UTARA">CYBERJAYA UTARA</option>
+        </select>
+        <label for="date">Date of Journey:</label>
+        <input type="date" id="date" required aria-label="Date of Journey">
+        <label for="seats">Number of Seats:</label>
+        <input type="number" id="seats" min="1" max="10" required aria-label="Number of Seats">
+        <input type="submit" value="Book Now">
+    </form>
+</div>
+
+<!-- Ticket Confirmation & Receipt -->
+<div class="ticket-box" id="ticket-confirmation" style="display: none;">
+    <h2>Ticket Confirmation & Receipt</h2>
+    <div class="ticket-details">
+        <p><strong>Destination:</strong> <span id="ticket-destination"></span></p>
+        <p><strong>Date of Journey:</strong> <span id="ticket-date"></span></p>
+        <p><strong>Seats Booked:</strong> <span id="ticket-seats"></span></p>
+    </div>
+    <button onclick="printTicket()">Print Ticket</button>
+    <button onclick="backToHome()">Back to Home</button>
+</div>
+
+<p id="message"></p>
+
+<script>
+    // Booking Form Submission and Displaying Ticket Confirmation
+    document.getElementById('ticket-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Retrieve input values
+        let destination = document.getElementById('destination').value;
+        let date = document.getElementById('date').value;
+        let seats = document.getElementById('seats').value;
+
+        // Store the booking details temporarily
+        document.getElementById('ticket-destination').innerText = destination;
+        document.getElementById('ticket-date').innerText = date;
+        document.getElementById('ticket-seats').innerText = seats;
+
+        // Hide booking form and show ticket confirmation
+        document.getElementById('booking-form').style.display = 'none';
+        document.getElementById('ticket-confirmation').style.display = 'block';
+    });
+
+    // Function to print the ticket
+    function printTicket() {
+        window.print();
+    }
+
+    // Updated function to redirect to the login page
+    function backToHome() {
+        // Redirect to the login page
+        window.location.href = "3.html"; // Change to your login page URL if different
+    }
+</script>
+
+</body>
+</html>
